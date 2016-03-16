@@ -1,0 +1,22 @@
+#vhost template file
+
+<% if @domain == "pauleallen2.mylabserver.com" -%>
+	NameVirtualHost *:80
+<% end -%>
+
+<VirtualHost *:<%= @port %> >
+
+	ServerName <%= @domain %>
+	ServerAlias <%= @domain %>
+	DocumentRoot "<%= @document_root %>"
+	
+	<Directory />
+		Require all denied
+	</Directory>
+
+	<Directory "<%= @document_root %>" >
+		Require all granted
+		DirectoryIndex index.html
+	</Directory>
+
+</VirtualHost>
