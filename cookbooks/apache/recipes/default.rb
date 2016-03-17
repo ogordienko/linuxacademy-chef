@@ -45,7 +45,8 @@ node["apache"]["sites"].each do |sitename, data|
 		variables(
 			:domain => data["domain"],
 			:site_title => data["site_title"],
-			:comingsoon => "Coming Soon!"
+			:comingsoon => "Coming Soon!",
+			:author_name => node["author"]["name"]
 		)
 	end
 
